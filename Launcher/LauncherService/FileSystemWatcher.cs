@@ -51,6 +51,7 @@ namespace LauncherService
             }
 
             _logFilesCreationMethod.CreateParameterLog(studyInformation.ToParametersString);
+            File.Delete(fullPath);
         }
 
         private static bool CheckFileExistence(string fullPath, string fileName)
