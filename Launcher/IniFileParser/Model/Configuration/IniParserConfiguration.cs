@@ -26,26 +26,26 @@ namespace IniFileParser.Model.Configuration
         /// </summary>
         /// <remarks>
         ///     By default the various delimiters for the data are setted:
-        ///     <para>';' for one-line comments</para>
+        ///     <para>':' for one-line comments</para>
         ///     <para>'[' ']' for delimiting a section</para>
         ///     <para>'=' for linking key / value pairs</para>
         ///     <example>
         ///         An example of well formed data with the default values:
         ///         <para>
-        ///         ;section comment<br/>
-        ///         [section] ; section comment<br/>
+        ///         :section comment<br/>
+        ///         [section] : section comment<br/>
         ///         <br/>
-        ///         ; key comment<br/>
-        ///         key = value ;key comment<br/>
+        ///         : key comment<br/>
+        ///         key = value :key comment<br/>
         ///         <br/>
-        ///         ;key2 comment<br/>
+        ///         :key2 comment<br/>
         ///         key2 = value<br/>
         ///         </para>
         ///     </example>
         /// </remarks>
         public IniParserConfiguration()
         {
-            CommentString = ";";
+            CommentString = ":";
             SectionStartChar = '[';
             SectionEndChar = ']';
             KeyValueAssigmentChar = '=';
@@ -135,7 +135,7 @@ namespace IniFileParser.Model.Configuration
         ///     A comment spans from the comment character to the end of the line.
         /// </summary>
         /// <remarks>
-        ///     Defaults to character ';'
+        ///     Defaults to character ':'
         /// </remarks>
         [Obsolete("Please use the CommentString property")]
         public char CommentChar
@@ -150,7 +150,7 @@ namespace IniFileParser.Model.Configuration
         ///     to the end of the line.
         /// </summary>
         /// <remarks>
-        ///     Defaults to string ";"
+        ///     Defaults to string ":"
         /// </remarks>
         public string CommentString
         {

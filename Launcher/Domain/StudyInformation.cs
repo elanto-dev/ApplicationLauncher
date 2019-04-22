@@ -6,13 +6,13 @@ namespace Domain
 {
     public class StudyInformation
     {
-        public string StudyId { get; set; } //TODO! Ask what is studyId. Where to find it?
+        public string StudyId { get; set; }
 
         [Required]
         public string Patientssn { get; set; }
 
         [Required]
-        public string PatientBirthdate { get; set; } //TODO! To DateTime
+        public string PatientBirthdate { get; set; }
 
         [Required]
         public string PatientFirstName { get; set; }
@@ -27,7 +27,7 @@ namespace Domain
         public string SampleNumber { get; set; }
 
         [Required]
-        public string StudyDate { get; set; } //TODO! To DateTime
+        public string StudyDate { get; set; }
 
         public string StudyInstanceUid { get; set; }
 
@@ -58,14 +58,12 @@ namespace Domain
             return resultSb.ToString();
         }
 
-        public string ToParametersString => " -patientssn " + Patientssn
+        public string ToParametersString => "-patientssn " + Patientssn
                                                             + " -patientfirstname " + PatientFirstName
                                                             + " -patientlastname " + PatientLastName
                                                             + " -patientbirthdate " + PatientBirthdate
                                                             + " -studydate " + StudyDate
-                                                            + (StudyNumber != null
-                                                                ? " -studynumber " + StudyNumber
-                                                                : "")
+                                                            + (StudyNumber != null ? " -studynumber " + StudyNumber : "")
                                                             + (StudyId != null ? " -studyid " + StudyId : "")
                                                             + (SampleNumber != null ? " -samplenumber " + SampleNumber : "")
                                                             + (RefSenderDoctor != null ? " -refsenderdoc " + RefSenderDoctor : "")
@@ -74,7 +72,5 @@ namespace Domain
                                                             + (StudyInstanceUid != null ? " -studyinstanceuid " + StudyInstanceUid : "")
                                                             + (StudyTypeName != null ? " -studytypename " + StudyTypeName : "")
                                                             + " -containercount " + ContainerCount + GetStringOfContainers();
-
-
     }
 }

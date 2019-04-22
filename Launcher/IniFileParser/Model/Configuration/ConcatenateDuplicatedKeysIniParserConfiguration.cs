@@ -6,7 +6,7 @@ namespace IniFileParser.Model.Configuration
         public ConcatenateDuplicatedKeysIniParserConfiguration()
             :base()
         {
-            ConcatenateSeparator = ";";
+            ConcatenateSeparator = ":";
         }
 
         public ConcatenateDuplicatedKeysIniParserConfiguration(ConcatenateDuplicatedKeysIniParserConfiguration ori)

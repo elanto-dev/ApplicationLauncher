@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using Domain;
 using IniFileParser.Model;
 using Container = Domain.Container;
@@ -82,11 +83,11 @@ namespace FileTransformerService
         {
             studyInformation = new StudyInformation()
             {
-                PatientBirthdate = studyParameters["DOB"],
+                PatientBirthdate = DateTime.ParseExact(studyParameters["DOB"], "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("dd.MM.yyyy"),
                 Patientssn = studyParameters["PATIENTID"],
                 PatientFirstName = studyParameters["PATIENTNAME"].Substring(studyParameters["PATIENTNAME"].IndexOf(",", StringComparison.Ordinal) + 1),
                 PatientLastName = studyParameters["PATIENTNAME"].Substring(0, studyParameters["PATIENTNAME"].IndexOf(",", StringComparison.Ordinal)),
-                StudyDate = studyParameters["STUDYDATE"],
+                StudyDate = DateTime.ParseExact(studyParameters["STUDYDATE"], "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture).ToString("dd.MM.yyyy HH:mm"),
                 ContainerCount = 0
             };
             if (ParametersContainKey(studyParameters, "SAMPLENUMBER", out var studyInfoParameter))
@@ -102,7 +103,7 @@ namespace FileTransformerService
             {
                 studyInformation.RefSenderDoctor = studyInfoParameter;
             }
-            if (ParametersContainKey(studyParameters, "SAMPLENUMBER", out studyInfoParameter))
+            if (ParametersContainKey(studyParameters, "STUDYID", out studyInfoParameter))
             {
                 studyInformation.StudyId = studyInfoParameter;
             }
