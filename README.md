@@ -5,10 +5,12 @@ Programmis kasutasin fileWatcherService just selle ülesande täitmiseks.
 Praegu programm loeb START.ini failist parameetrid ning kirjutab neid logisse parameetrite jaoks moodustatud .txt faili.
 Selleks, et fail oleks õigeks määratud, peavad olema mõlemad sektsioonid (Parameters ja Bottles), vajalikud parameetrid 
 (ees- ja perekonnanimi, sünnipäev, proovi võtmise aeg ja ssn).
-Vigase faili korral service jättab logi ning kustutab vigase faili ära. Veidi veel uurin ja lisan võimaluse, 
-et vigaste failide sisu koliks ümber logis olevatesse vigaste failide hulka. Praegu programm sinult moodustab uue faili kuid sisu kustutakse koos vana vigase failiga.
-Tuleb tegeleda praegu DateTime parameetritega, sest praegu neid salvestatakse lihtsalt otse stringina vales formaadis.
-Lisaks sooviks teada kust võtta StudyId, sest kirjelduses oli see ühes kohas SampleNumber, aga näites SampleNumber ja StudyId numbrit ei kattunud kokku.
+Vigase faili korral service jättab logi ning kustutab vigase faili ära. 
+
+# Parandada veel:
+
+Lisada faili ümberkirjutamist vigase faili korral.
+Kontrollida kood spagheti suhtes.
 
 # All on toodud programmi käivitamine
 
